@@ -5,6 +5,7 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 import React from "react";
 import { Header } from "../components/Header";
@@ -15,14 +16,16 @@ const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-const options = {
+const options: ApexOptions = {
   chart: {
-    toolbar: false,
+    zoom: {
+      enabled: false,
+    },
+    toolbar: {
+      show: false,
+    },
+    foreColor: theme.colors.gray[500],
   },
-  zoom: {
-    enabled: false,
-  },
-  foreColor: theme.colors.gray[500],
   grid: {
     show: false,
   },
@@ -64,7 +67,6 @@ const options = {
 const series = [{ name: "Serie1", data: [31, 120, 10, 26, 23, 133] }];
 
 export default function Dashboard() {
- 
   return (
     <Flex direction="column" h="100vh">
       <Header />
