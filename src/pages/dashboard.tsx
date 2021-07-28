@@ -1,4 +1,10 @@
-import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  SimpleGrid,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 import { Header } from "../components/Header";
@@ -58,6 +64,7 @@ const options = {
 const series = [{ name: "Serie1", data: [31, 120, 10, 26, 23, 133] }];
 
 export default function Dashboard() {
+ 
   return (
     <Flex direction="column" h="100vh">
       <Header />
@@ -67,7 +74,7 @@ export default function Dashboard() {
 
         <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
           <Box
-            p="8"
+            p={["6", "8"]}
             bg="gray.800"
             borderRadius={8}
             // pb="4"
@@ -78,7 +85,7 @@ export default function Dashboard() {
             <Chart type="area" height="160" options={options} series={series} />
           </Box>
           <Box
-            p="8"
+            p={["6", "8"]}
             bg="gray.800"
             borderRadius={8}
             // pb="4"
